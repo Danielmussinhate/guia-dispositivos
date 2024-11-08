@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Dispositivos e Materiais Connect Line</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Guia de Dispositivos e Materiais Connect Line</h1>
+        
+        <!-- Instruções de Uso -->
+        <h2>Instruções de Uso</h2>
+        <p class="instructions">
+            Siga os passos abaixo para obter a recomendação adequada de dispositivos e materiais com base no peso e na idade do paciente:
+        </p>
+        <ol class="instructions">
+            <li><strong>Inserir Peso e Idade do Paciente:</strong> Insira o peso do paciente em quilogramas (kg) e selecione a faixa etária correspondente.</li>
+            <li><strong>Selecionar o Dispositivo/Material:</strong> Escolha o dispositivo ou material que necessita de seleção (ex.: Cateter de Aspiração, Sonda de Foley, etc.).</li>
+            <li><strong>Obter a Recomendação:</strong> Clique no botão "Obter Recomendação" para visualizar a especificação adequada.</li>
+        </ol>
+
+        <!-- Formulário Guia Connect Line -->
+        <form id="guideForm">
+            <div class="form-group">
+                <label for="weight">Peso (kg):</label>
+                <input type="number" id="weight" name="weight" step="0.1" min="0" required aria-required="true" placeholder="Ex: 70.5">
+            </div>
+            <div class="form-group">
+                <label for="age">Idade:</label>
+                <select id="age" name="age" required aria-required="true">
+                    <option value="">Selecione a idade</option>
+                    <optgroup label="Prematuro">
+                        <option value="prematuro <28">Prematuro &lt; 28 semanas</option>
+                        <option value="prematuro 28-34">Prematuro 28 a 34 semanas</option>
+                        <option value="prematuro 34-37">Prematuro 34 a 37 semanas</option>
+                    </optgroup>
+                    <optgroup label="Idade">
+                        <option value="1m">1 mês</option>
+                        <option value="1-2m">1 a 2 meses</option>
+                        <option value="3-4m">3 a 4 meses</option>
+                        <option value="4-6m">4 a 6 meses</option>
+                        <option value="6-12m">6 a 12 meses</option>
+                        <option value="1a">1 ano</option>
+                        <option value="2a">2 anos</option>
+                        <option value="3-4a">3 a 4 anos</option>
+                        <option value="5-6a">5 a 6 anos</option>
+                        <option value="6-9a">6 a 9 anos</option>
+                        <option value="10-11a">10 a 11 anos</option>
+                        <option value="12a">12 anos</option>
+                        <option value="13a">13 anos</option>
+                        <option value="14a">14 anos</option>
+                        <option value="15a">15 anos</option>
+                        <option value="16a-19a">16 a 19 anos</option>
+                        <option value="20a-25a">20 a 25 anos</option>
+                        <option value="26a-35a">26 a 35 anos</option>
+                        <option value="36a-45a">36 a 45 anos</option>
+                        <option value="46a-55a">46 a 55 anos</option>
+                        <option value="56a-65a">56 a 65 anos</option>
+                        <option value="66a-75a">66 a 75 anos</option>
+                        <option value="76a-85a">76 a 85 anos</option>
+                        <option value="86a-95a">86 a 95 anos</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="device">Dispositivo:</label>
+                <select id="device" name="device" required aria-required="true">
+                    <option value="">Selecione o dispositivo</option>
+                    <option value="cateter_aspiracao">Cateter de Aspiração</option>
+                    <option value="cateter_cvc">Cateter Venoso Central (CVC)</option>
+                    <option value="dreno_torax">Dreno de Tórax</option>
+                    <option value="laringoscopio">Lâmina de Laringoscópio</option>
+                    <option value="mascara_laringea">Máscara Laríngea</option>
+                    <option value="pas_desfibrilador">Pás Desfibrilador</option>
+                    <option value="sonda_foley">Sonda de Foley</option>
+                    <option value="sonda_nasogastrica">Sonda Nasogástrica</option>
+                    <option value="sonda_nasoenteral">Sonda Nasoenteral</option>
+                    <option value="distancia_sonda">Distância de Inserção da Sonda Enteral</option>
+                    <option value="tubo_traqueal">Tubo Traqueal (mm)</option>
+                    <option value="sonda_guedel">Sonda Guedel</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Obter Recomendação</button>
+        </form>
+
+        <!-- Resultado -->
+        <div id="result" class="result" aria-live="polite">
+            <!-- Resultado será exibido aqui -->
+        </div>
+
+        <!-- Tabela de Recomendações -->
+        <div class="table-container">
+            <table id="recommendationTable">
+                <thead>
+                    <tr>
+                        <th>Dispositivo</th>
+                        <th>Recomendação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Recomendações serão inseridas aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
